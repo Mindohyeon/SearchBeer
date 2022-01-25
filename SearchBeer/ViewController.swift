@@ -6,12 +6,24 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let searchBar = UISearchBar()
+        
+        [searchBar].forEach { view.addSubview($0)}
+        
+        
+        self.view.backgroundColor = .white
+        
+        self.title = "Search"
+        self.navigationItem.titleView = searchBar
+        
     }
 
 
