@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,6 @@ class ViewController: UIViewController {
         
         self.view.backgroundColor = .white
         
-        self.title = "Search"
         self.navigationItem.titleView = searchBar
         
     }

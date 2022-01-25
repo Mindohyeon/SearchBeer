@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF1FEAB727A04F4600AE3234 /* BeerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FEAB627A04F4600AE3234 /* BeerListController.swift */; };
 		DF78D96F279EF96600FEBE1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78D96E279EF96600FEBE1B /* AppDelegate.swift */; };
 		DF78D971279EF96600FEBE1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78D970279EF96600FEBE1B /* SceneDelegate.swift */; };
-		DF78D973279EF96600FEBE1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78D972279EF96600FEBE1B /* ViewController.swift */; };
+		DF78D973279EF96600FEBE1B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78D972279EF96600FEBE1B /* SearchViewController.swift */; };
 		DF78D978279EF96700FEBE1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF78D977279EF96700FEBE1B /* Assets.xcassets */; };
 		DF78D97B279EF96700FEBE1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF78D979279EF96700FEBE1B /* LaunchScreen.storyboard */; };
 		DF78D984279EFA4300FEBE1B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DF78D983279EFA4300FEBE1B /* SnapKit */; };
@@ -17,10 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF1FEAB627A04F4600AE3234 /* BeerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListController.swift; sourceTree = "<group>"; };
 		DF78D96B279EF96600FEBE1B /* SearchBeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchBeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF78D96E279EF96600FEBE1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF78D970279EF96600FEBE1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DF78D972279EF96600FEBE1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DF78D972279EF96600FEBE1B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DF78D977279EF96700FEBE1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF78D97A279EF96700FEBE1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF78D97C279EF96700FEBE1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,11 +62,12 @@
 			children = (
 				DF78D96E279EF96600FEBE1B /* AppDelegate.swift */,
 				DF78D970279EF96600FEBE1B /* SceneDelegate.swift */,
-				DF78D972279EF96600FEBE1B /* ViewController.swift */,
+				DF78D972279EF96600FEBE1B /* SearchViewController.swift */,
 				DF78D977279EF96700FEBE1B /* Assets.xcassets */,
 				DF78D979279EF96700FEBE1B /* LaunchScreen.storyboard */,
 				DF78D97C279EF96700FEBE1B /* Info.plist */,
 				DF78D985279EFB0D00FEBE1B /* TabBarController.swift */,
+				DF1FEAB627A04F4600AE3234 /* BeerListController.swift */,
 			);
 			path = SearchBeer;
 			sourceTree = "<group>";
@@ -145,7 +148,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF78D973279EF96600FEBE1B /* ViewController.swift in Sources */,
+				DF1FEAB727A04F4600AE3234 /* BeerListController.swift in Sources */,
+				DF78D973279EF96600FEBE1B /* SearchViewController.swift in Sources */,
 				DF78D986279EFB0D00FEBE1B /* TabBarController.swift in Sources */,
 				DF78D96F279EF96600FEBE1B /* AppDelegate.swift in Sources */,
 				DF78D971279EF96600FEBE1B /* SceneDelegate.swift in Sources */,
