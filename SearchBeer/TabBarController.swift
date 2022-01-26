@@ -15,10 +15,8 @@ class TabBarController : UITabBarController {
 
         
         let SearchVC = SearchViewController()
-        SearchVC.title = "Search ID"
         
         let BeerListVC = BeerListController()
-        BeerListVC.title = "Beer List"
         
         var SearchViewNC = UINavigationController(rootViewController: SearchVC)
         var BeerListNC = UINavigationController(rootViewController: BeerListVC)

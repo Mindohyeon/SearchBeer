@@ -21,6 +21,9 @@ class SearchViewController: UIViewController {
         
         self.view.backgroundColor = .white
         
+        self.title = "Search ID"
+        searchBar.placeholder = "Search"
+        
         self.navigationItem.titleView = searchBar
         
     }
