@@ -13,13 +13,16 @@ import SnapKit
 class BeerListController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let tableView = UITableView()
-    let items : [String] = ["aa", "bb", "cc"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
         [tableView].forEach{ view.addSubview($0)}
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.delegate = self
+        tableView.dataSource = self
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "BeerList"
@@ -30,15 +33,15 @@ class BeerListController : UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as UITableViewCell
+        let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = "view : \(indexPath.row)"
+        cell.textLabel?.text = "Cell : \(indexPath.row)"
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
+        return 10
     }
     
     

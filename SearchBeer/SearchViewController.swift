@@ -24,7 +24,9 @@ class SearchViewController: UIViewController {
 
         searchBar.placeholder = "Search"
         
-        self.navigationItem.titleView = searchBar
+//        self.navigationItem.titleView = searchBar
+        
+        
         
     }
 
