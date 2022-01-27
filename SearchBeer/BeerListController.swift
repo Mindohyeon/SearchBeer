@@ -17,7 +17,7 @@ class BeerListController : UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemBlue
+        self.view.backgroundColor = .white
         
         [tableView].forEach{ view.addSubview($0)}
         
