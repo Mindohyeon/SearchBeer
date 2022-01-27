@@ -13,23 +13,40 @@ import SnapKit
 class BeerListController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let tableView = UITableView()
+    let titleLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
-        [tableView].forEach{ view.addSubview($0)}
+//        titleLabel.text =  "Beer List"
+        //bold 체로 하면서 size 는 30
+//        titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "Beer List"
+        
+        
+        [tableView, titleLabel].forEach{ view.addSubview($0)}
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
         
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "BeerList"
-       
+//        navigationController?.isNavigationBarHidden = true
+        
+//        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationItem.title = "BeerList"
+               
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        
+//        titleLabel.snp.makeConstraints {
+//            $0.centerY.equalTo(100)
+//            $0.leadingMargin.equalTo(10)
+//
+//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,9 +57,14 @@ class BeerListController : UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    // cell 의 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 30
     }
     
+    // cell 이 tap 되었을 때
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("cell tapped")
+    }
     
 }
