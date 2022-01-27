@@ -13,15 +13,15 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = .white
         
         let searchBar = UISearchBar()
         
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Search BY ID"
+        
         [searchBar].forEach { view.addSubview($0)}
-        
-        
-        self.view.backgroundColor = .white
-        
-        self.title = "Search ID"
+
         searchBar.placeholder = "Search"
         
         self.navigationItem.titleView = searchBar

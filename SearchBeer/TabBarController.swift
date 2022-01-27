@@ -12,7 +12,6 @@ class TabBarController : UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         let SearchVC = SearchViewController()
         
@@ -21,8 +20,11 @@ class TabBarController : UITabBarController {
         var SearchViewNC = UINavigationController(rootViewController: SearchVC)
         var BeerListNC = UINavigationController(rootViewController: BeerListVC)
         
+        SearchViewNC.tabBarItem.title = "Search ID"
+        BeerListNC.tabBarItem.title = "Beer List"
         
-        self.setViewControllers([SearchViewNC, BeerListNC], animated: false)
+        
+        self.setViewControllers([ BeerListNC, SearchViewNC], animated: false)
         
         guard let items = self.tabBar.items else {return}
         

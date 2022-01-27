@@ -21,20 +21,18 @@ class BeerListController : UIViewController, UITableViewDelegate, UITableViewDat
         
         [tableView].forEach{ view.addSubview($0)}
         
-        self.title = "Beer List"
         navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.title = "Beer List"
-        
-//        tableView.snp.makeConstraints {
-//            $0.top.equalTo(.snp.bottom)
-//
-//        }
+        navigationItem.title = "BeerList"
+       
+        tableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as UITableViewCell
         
-        cell.textLabel?.text = items[indexPath.row]
+        cell.textLabel?.text = "view : \(indexPath.row)"
         
         return cell
     }
