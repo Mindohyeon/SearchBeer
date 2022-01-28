@@ -19,10 +19,6 @@ class BeerListController : UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
-//        titleLabel.text =  "Beer List"
-        //bold 체로 하면서 size 는 30
-//        titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
-        
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Beer List"
         
@@ -33,20 +29,15 @@ class BeerListController : UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         
+        layout()
+        
+//        bold 체로 하면서 size 는 30
+//        titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        
+//        navigation 자리를 없앰
 //        navigationController?.isNavigationBarHidden = true
-        
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//        navigationItem.title = "BeerList"
                
-        tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-        
-//        titleLabel.snp.makeConstraints {
-//            $0.centerY.equalTo(100)
-//            $0.leadingMargin.equalTo(10)
-//
-//        }
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,4 +58,9 @@ class BeerListController : UIViewController, UITableViewDelegate, UITableViewDat
         print("cell tapped")
     }
     
+    func layout() {
+        tableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
 }

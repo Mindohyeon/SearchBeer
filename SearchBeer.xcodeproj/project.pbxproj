@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DF1FEAB727A04F4600AE3234 /* BeerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FEAB627A04F4600AE3234 /* BeerListController.swift */; };
+		DF232FB227A431CA00F22D33 /* RandomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF232FB127A431CA00F22D33 /* RandomController.swift */; };
 		DF78D96F279EF96600FEBE1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78D96E279EF96600FEBE1B /* AppDelegate.swift */; };
 		DF78D971279EF96600FEBE1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78D970279EF96600FEBE1B /* SceneDelegate.swift */; };
 		DF78D973279EF96600FEBE1B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78D972279EF96600FEBE1B /* SearchViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		DF1FEAB627A04F4600AE3234 /* BeerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListController.swift; sourceTree = "<group>"; };
+		DF232FB127A431CA00F22D33 /* RandomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomController.swift; sourceTree = "<group>"; };
 		DF78D96B279EF96600FEBE1B /* SearchBeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchBeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF78D96E279EF96600FEBE1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF78D970279EF96600FEBE1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF232FB027A4316800F22D33 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				DF78D985279EFB0D00FEBE1B /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		DF78D962279EF96600FEBE1B = {
 			isa = PBXGroup;
 			children = (
@@ -60,14 +70,15 @@
 		DF78D96D279EF96600FEBE1B /* SearchBeer */ = {
 			isa = PBXGroup;
 			children = (
+				DF232FB027A4316800F22D33 /* TabBar */,
 				DF78D96E279EF96600FEBE1B /* AppDelegate.swift */,
 				DF78D970279EF96600FEBE1B /* SceneDelegate.swift */,
 				DF78D972279EF96600FEBE1B /* SearchViewController.swift */,
 				DF78D977279EF96700FEBE1B /* Assets.xcassets */,
 				DF78D979279EF96700FEBE1B /* LaunchScreen.storyboard */,
 				DF78D97C279EF96700FEBE1B /* Info.plist */,
-				DF78D985279EFB0D00FEBE1B /* TabBarController.swift */,
 				DF1FEAB627A04F4600AE3234 /* BeerListController.swift */,
+				DF232FB127A431CA00F22D33 /* RandomController.swift */,
 			);
 			path = SearchBeer;
 			sourceTree = "<group>";
@@ -148,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF232FB227A431CA00F22D33 /* RandomController.swift in Sources */,
 				DF1FEAB727A04F4600AE3234 /* BeerListController.swift in Sources */,
 				DF78D973279EF96600FEBE1B /* SearchViewController.swift in Sources */,
 				DF78D986279EFB0D00FEBE1B /* TabBarController.swift in Sources */,
