@@ -17,9 +17,9 @@ class TabBarController : UITabBarController {
         let BeerListVC = BeerListController()
         let RandomVC = RandomController()
         
-        var SearchViewNC = UINavigationController(rootViewController: SearchVC)
-        var BeerListNC = UINavigationController(rootViewController: BeerListVC)
-        var RandomNC = UINavigationController(rootViewController: RandomVC)
+        let SearchViewNC = UINavigationController(rootViewController: SearchVC)
+        let BeerListNC = UINavigationController(rootViewController: BeerListVC)
+        let RandomNC = UINavigationController(rootViewController: RandomVC)
         
         SearchViewNC.tabBarItem.title = "Search ID"
         BeerListNC.tabBarItem.title = "Beer List"
