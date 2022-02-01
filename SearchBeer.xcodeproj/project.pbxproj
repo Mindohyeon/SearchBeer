@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		DF1FEAB727A04F4600AE3234 /* BeerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FEAB627A04F4600AE3234 /* BeerListController.swift */; };
 		DF232FB227A431CA00F22D33 /* RandomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF232FB127A431CA00F22D33 /* RandomController.swift */; };
-		DF232FB427A6D9EF00F22D33 /* BeerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF232FB327A6D9EF00F22D33 /* BeerModel.swift */; };
+		DF232FB427A6D9EF00F22D33 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF232FB327A6D9EF00F22D33 /* Beer.swift */; };
 		DF232FB627A6E7AC00F22D33 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF232FB527A6E7AC00F22D33 /* ViewController.swift */; };
+		DF232FB827A8204E00F22D33 /* BeerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF232FB727A8204E00F22D33 /* BeerListCell.swift */; };
 		DF78D96F279EF96600FEBE1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78D96E279EF96600FEBE1B /* AppDelegate.swift */; };
 		DF78D971279EF96600FEBE1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78D970279EF96600FEBE1B /* SceneDelegate.swift */; };
 		DF78D973279EF96600FEBE1B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78D972279EF96600FEBE1B /* SearchViewController.swift */; };
@@ -23,8 +24,9 @@
 /* Begin PBXFileReference section */
 		DF1FEAB627A04F4600AE3234 /* BeerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListController.swift; sourceTree = "<group>"; };
 		DF232FB127A431CA00F22D33 /* RandomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomController.swift; sourceTree = "<group>"; };
-		DF232FB327A6D9EF00F22D33 /* BeerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerModel.swift; sourceTree = "<group>"; };
+		DF232FB327A6D9EF00F22D33 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		DF232FB527A6E7AC00F22D33 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DF232FB727A8204E00F22D33 /* BeerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListCell.swift; sourceTree = "<group>"; };
 		DF78D96B279EF96600FEBE1B /* SearchBeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchBeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF78D96E279EF96600FEBE1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF78D970279EF96600FEBE1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,8 +85,9 @@
 				DF78D97C279EF96700FEBE1B /* Info.plist */,
 				DF1FEAB627A04F4600AE3234 /* BeerListController.swift */,
 				DF232FB127A431CA00F22D33 /* RandomController.swift */,
-				DF232FB327A6D9EF00F22D33 /* BeerModel.swift */,
+				DF232FB327A6D9EF00F22D33 /* Beer.swift */,
 				DF232FB527A6E7AC00F22D33 /* ViewController.swift */,
+				DF232FB727A8204E00F22D33 /* BeerListCell.swift */,
 			);
 			path = SearchBeer;
 			sourceTree = "<group>";
@@ -165,11 +168,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF232FB427A6D9EF00F22D33 /* BeerModel.swift in Sources */,
+				DF232FB427A6D9EF00F22D33 /* Beer.swift in Sources */,
 				DF232FB227A431CA00F22D33 /* RandomController.swift in Sources */,
 				DF1FEAB727A04F4600AE3234 /* BeerListController.swift in Sources */,
 				DF78D973279EF96600FEBE1B /* SearchViewController.swift in Sources */,
 				DF78D986279EFB0D00FEBE1B /* TabBarController.swift in Sources */,
+				DF232FB827A8204E00F22D33 /* BeerListCell.swift in Sources */,
 				DF78D96F279EF96600FEBE1B /* AppDelegate.swift in Sources */,
 				DF232FB627A6E7AC00F22D33 /* ViewController.swift in Sources */,
 				DF78D971279EF96600FEBE1B /* SceneDelegate.swift in Sources */,
