@@ -13,7 +13,7 @@ import SnapKit
 class BeerListController : UITableViewController{
     
     var beerList =  [Beer]()
-    var currentpage = 1
+    var currentPage = 1
     var dataTasks = [URLSession]()
     
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class BeerListController : UITableViewController{
         //pagination
         tableView.prefetchDataSource = self
         
-        fetchBeer(of: currentpage)
+        fetchBeer(of: currentPage)
         
     }
 }
@@ -59,10 +59,10 @@ extension BeerListController : UITableViewDataSourcePrefetching {
     }
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        guard currentpage != 1 else { return }
+        guard currentPage != 1 else { return }
         indexPaths.forEach{
-            if($0.row + 1) / 25 + 1 == currentpage {
-                fetchBeer(of : currentpage)
+            if($0.row + 1) / 25 + 1 == currentPage {
+                self.fetchBeer(of : currentPage)
             }
         }
         
@@ -74,7 +74,7 @@ extension BeerListController {
     func fetchBeer(of Page : Int) {
         guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(Page)"),
             
-                dataTasks.first(where: { $0.originalRequest?.url == url}) == nil
+                dataTasks.firstIndex(where: { $0.originalRequest?.url == url }) == nil
         else { return }
         var request = URLRequest(url: url)
         //get 으로 설정
@@ -90,13 +90,25 @@ extension BeerListController {
                       return
                   }
             
+            switch response.statusCode {
+            case(200...299):  //성공, 받아온 beers 데이터를 beerList 에 추가, 다음 페이지로 이동
+                self.beerList += beers
+                self.currentPage += 1
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            default:
+                print("""
+                    Error : Error \(response.statusCode)
+                    Response : \(response)
+                """)
+            }
+            
         }
         
         dataTask.resume()
         dataTasks.append(dataTask)
-        
-        
-        
     }
 }
 
