@@ -14,7 +14,7 @@ class BeerListController : UITableViewController{
     
     var beerList =  [Beer]()
     var currentpage = 1
-    var dataTask = [URLSession]()
+    var dataTasks = [URLSession]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,8 @@ class BeerListController : UITableViewController{
         
         //pagination
         tableView.prefetchDataSource = self
+        
+        fetchBeer(of: currentpage)
         
     }
 }
@@ -72,10 +74,26 @@ extension BeerListController {
     func fetchBeer(of Page : Int) {
         guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(Page)"),
             
-        dataTask.firstIndex(where: { $0.originalRequest?.url == url}) == nil
+                dataTasks.first(where: { $0.originalRequest?.url == url}) == nil
         else { return }
         var request = URLRequest(url: url)
+        //get 으로 설정
         request.httpMethod = "GET"
+        
+        
+        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil,
+                  let response = response as? HTTPURLResponse,
+                  let data = data,
+                  let beers = try? JSONDecoder().decode([Beer].self, from: data) else {
+                      print("Error!!")
+                      return
+                  }
+            
+        }
+        
+        dataTask.resume()
+        dataTasks.append(dataTask)
         
         
         
