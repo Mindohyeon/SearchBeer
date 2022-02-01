@@ -70,6 +70,14 @@ extension BeerListController : UITableViewDataSourcePrefetching {
 
 extension BeerListController {
     func fetchBeer(of Page : Int) {
+        guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(Page)"),
+            
+        dataTask.firstIndex(where: { $0.originalRequest?.url == url}) == nil
+        else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        
         
     }
 }
