@@ -43,5 +43,9 @@ class BeerListCell : UITableViewCell {
         var imageURL = URL(string: beer.imageURL ?? "")
 //        beerImageView.kf.setImage(with: imageURL, placeholder: )
         nameLabel.text = beer.name ?? "No name"
+        
+        //cell 의 indicator 표시 추가
+        accessoryType = .disclosureIndicator
+        selectionStyle = .none
     }
 }
