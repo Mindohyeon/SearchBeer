@@ -20,6 +20,7 @@ class BeerListController : UITableViewController{
         super.viewDidLoad()
         
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "BeerList"
         
         // cell register
         tableView.register(BeerListCell.self, forCellReuseIdentifier: "BeerListCell")
@@ -73,6 +74,7 @@ extension BeerListController : UITableViewDataSourcePrefetching {
 extension BeerListController {
     func fetchBeer(of Page : Int) {
         guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(Page)"),
+              //요청된 적 없는 url 인지 확인
                 dataTasks.firstIndex(where: { $0.originalRequest?.url == url }) == nil
         else { return }
         var request = URLRequest(url: url)
@@ -108,6 +110,7 @@ extension BeerListController {
         }
         
         dataTask.resume()
+        //실행했던 거 다시 실행시키지 않기 위해서
         dataTasks.append(dataTask)
     }
 }
@@ -118,13 +121,3 @@ extension BeerListController {
         
 //        navigation 자리를 없앰
 //        navigationController?.isNavigationBarHidden = true
-               
-//    // cell 의 개수
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 30
-//    }
-//
-//    // cell 이 tap 되었을 때
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("cell tapped")
-//    }
