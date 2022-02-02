@@ -20,6 +20,7 @@ class BeerListCell : UITableViewCell {
         
         [beerImageView, nameLabel].forEach{ contentView.addSubview($0) }
         
+        //콘텐츠 비율을 유지하여 View 크기에 맞게 확장하는 옵션, 남은 영역은 투명하다.
         beerImageView.contentMode = .scaleAspectFit
         
         nameLabel.font = .systemFont(ofSize: 20, weight: .bold)
@@ -33,7 +34,7 @@ class BeerListCell : UITableViewCell {
         }
         
         nameLabel.snp.makeConstraints {
-            $0.leading.equalTo(beerImageView.snp.trailing).offset(30)
+            $0.leading.equalTo(beerImageView.snp.trailing).offset(20)
             $0.trailing.equalToSuperview().inset(20)
             $0.bottom.equalTo(beerImageView.snp.centerY)
         }
@@ -41,7 +42,8 @@ class BeerListCell : UITableViewCell {
     
     func configure(with beer : Beer) {
         var imageURL = URL(string: beer.imageURL ?? "")
-//        beerImageView.kf.setImage(with: imageURL, placeholder: )
+        let image = UIImage(named: "1613805137738")
+        beerImageView.kf.setImage(with: imageURL, placeholder: image)
         nameLabel.text = beer.name ?? "No name"
         
         //cell 의 indicator 표시 추가
