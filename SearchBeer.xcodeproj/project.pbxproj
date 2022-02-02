@@ -59,6 +59,14 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		DF232FBE27AAC77500F22D33 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DF232FB727A8204E00F22D33 /* BeerListCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		DF78D962279EF96600FEBE1B = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +86,7 @@
 		DF78D96D279EF96600FEBE1B /* SearchBeer */ = {
 			isa = PBXGroup;
 			children = (
+				DF232FBE27AAC77500F22D33 /* TableViewCell */,
 				DF232FB027A4316800F22D33 /* TabBar */,
 				DF78D96E279EF96600FEBE1B /* AppDelegate.swift */,
 				DF78D970279EF96600FEBE1B /* SceneDelegate.swift */,
@@ -88,7 +97,6 @@
 				DF1FEAB627A04F4600AE3234 /* BeerListController.swift */,
 				DF232FB127A431CA00F22D33 /* RandomController.swift */,
 				DF232FB327A6D9EF00F22D33 /* Beer.swift */,
-				DF232FB727A8204E00F22D33 /* BeerListCell.swift */,
 				DF232FBC27A9855000F22D33 /* BeerDetailVIewController.swift */,
 			);
 			path = SearchBeer;

@@ -14,7 +14,7 @@ class BeerListController : UITableViewController{
     
     var beerList =  [Beer]()
     var currentPage = 1
-    var dataTasks = [URLSession]()
+    var dataTasks = [URLSessionTask]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +73,6 @@ extension BeerListController : UITableViewDataSourcePrefetching {
 extension BeerListController {
     func fetchBeer(of Page : Int) {
         guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(Page)"),
-            
                 dataTasks.firstIndex(where: { $0.originalRequest?.url == url }) == nil
         else { return }
         var request = URLRequest(url: url)
@@ -90,6 +89,7 @@ extension BeerListController {
                       return
                   }
             
+            //response의 statusCode 별 대처
             switch response.statusCode {
             case(200...299):  //성공, 받아온 beers 데이터를 beerList 에 추가, 다음 페이지로 이동
                 self.beerList += beers
