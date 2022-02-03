@@ -12,4 +12,12 @@ class BeerDetailViewController : UITableViewController {
     
     var beer : Beer?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = beer?.name ?? "No name"
+
+    }
+    
 }
