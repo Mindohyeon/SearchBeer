@@ -20,6 +20,8 @@ class BeerDetailViewController : UITableViewController {
         navigationItem.title = beer?.name ?? "No name"
 
         tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "BeerListCell")
+        tableView.rowHeight = UITableView.automaticDimension
 
     }
     
