@@ -57,6 +57,7 @@ extension BeerListController : UITableViewDataSourcePrefetching {
         let detailViewController = BeerDetailViewController()
         //BeerDetailViewController 로 이동
         detailViewController.beer = selectedBeer
+        self.show(detailViewController, sender: nil)
     }
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
