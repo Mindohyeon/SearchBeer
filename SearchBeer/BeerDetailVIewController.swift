@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class BeerDetailViewController : UITableViewController {
     
@@ -17,6 +18,8 @@ class BeerDetailViewController : UITableViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = beer?.name ?? "No name"
+
+        tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
 
     }
     
