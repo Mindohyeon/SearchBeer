@@ -41,7 +41,17 @@ extension BeerDetailViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
-
+    
+    //각 section 의 row 개수
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 3:
+            return beer?.foodPairing.count ?? 0
+            
+        default:
+            return 1
+        }
+    }
     
     
 }
