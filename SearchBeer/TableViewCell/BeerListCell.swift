@@ -47,7 +47,7 @@ class BeerListCell : UITableViewCell {
         nameLabel.text = beer.name ?? "No name"
         
         //cell 의 indicator 표시 추가
-        accessoryType = .disclosureIndicator
+        accessoryType = .disclosureIndicator // 오른쪽에 > 모양 만들기
         selectionStyle = .none
     }
 }
