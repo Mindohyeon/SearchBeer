@@ -35,3 +35,13 @@ class BeerDetailViewController : UITableViewController {
     }
     
 }
+
+extension BeerDetailViewController {
+    // section 개수
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 4
+    }
+
+    
+    
+}
