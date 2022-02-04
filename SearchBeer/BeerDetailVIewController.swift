@@ -69,5 +69,30 @@ extension BeerDetailViewController {
         }
     }
     
+    //받아온 beer 데이터 cell 에 넣어주기
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "BeerListCell")
+        
+        cell.textLabel?.numberOfLines = 0
+        cell.selectionStyle = .none
+        
+        
+        switch indexPath.section {
+        case 0:
+            cell.textLabel?.text = String(describing: beer?.id ?? 0)
+            return cell
+        case 1:
+            cell.textLabel?.text = beer?.description ?? "설명 없음"
+            return cell
+        case 2:
+            cell.textLabel?.text = beer?.brewersTips ?? "팁 없음"
+            return cell
+        case 3:
+            cell.textLabel?.text = beer?.foodPairing?[indexPath.row]
+            return cell
+        default:
+            return cell
+        }
+    }
     
 }
