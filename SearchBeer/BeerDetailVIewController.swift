@@ -46,10 +46,26 @@ extension BeerDetailViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 3:
-            return beer?.foodPairing.count ?? 0
+            return beer?.foodPairing?.count ?? 0
             
         default:
             return 1
+        }
+    }
+    
+    //각 section 의 title 정하기
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "ID"
+        case 1:
+            return "Description"
+        case 2:
+            return "Brewer Tips"
+        case 3:
+            return "FoodPairing"
+        default:
+            return nil
         }
     }
     
