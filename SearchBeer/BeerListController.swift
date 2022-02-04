@@ -24,7 +24,7 @@ class BeerListController : UITableViewController{
         
         // cell register
         tableView.register(BeerListCell.self, forCellReuseIdentifier: "BeerListCell")
-        tableView.rowHeight = 200
+        tableView.rowHeight = 110
         
         //pagination
         tableView.prefetchDataSource = self
@@ -57,6 +57,7 @@ extension BeerListController : UITableViewDataSourcePrefetching {
         let detailViewController = BeerDetailViewController()
         //BeerDetailViewController 로 이동
         detailViewController.beer = selectedBeer
+        
         self.show(detailViewController, sender: nil)
     }
     
