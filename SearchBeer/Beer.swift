@@ -20,7 +20,7 @@ struct Beer: Codable {
     
     let id : Int
     let name, taglineString, description, brewersTips, imageURL : String
-    let foodPairing : [String]
+    let foodPairing : [String]?
     
     enum CodingKeys : String, CodingKey {
         case id, name, description
