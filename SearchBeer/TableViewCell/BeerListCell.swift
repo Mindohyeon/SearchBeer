@@ -15,29 +15,33 @@ class BeerListCell : UITableViewCell {
     let numberLabel = UILabel()
     let beerImageView = UIImageView()
     let nameLabel = UILabel()
+    let descriptionLabel = UILabel()
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        [beerImageView, nameLabel, numberLabel].forEach{ contentView.addSubview($0) }
+        [beerImageView, nameLabel, numberLabel, descriptionLabel].forEach{ contentView.addSubview($0) }
         
         //콘텐츠 비율을 유지하여 View 크기에 맞게 확장하는 옵션, 남은 영역은 투명하다.
         beerImageView.contentMode = .scaleAspectFit
         
-        nameLabel.font = .systemFont(ofSize: 20)
-        nameLabel.numberOfLines = 2
+        nameLabel.font = .systemFont(ofSize: 13, weight: .bold)
         
+        numberLabel.font = .systemFont(ofSize: 13)
         numberLabel.textColor = UIColor(.yellow)
+        
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakMode = .byWordWrapping
         
         beerImageView.snp.makeConstraints {
             $0.centerX.equalTo(0)
-            $0.leading.top.bottom.equalToSuperview().inset(30)
-            $0.width.equalTo(200)
+            $0.leading.top.bottom.equalToSuperview().inset(10)
+            $0.width.equalTo(90)
             $0.height.equalTo(200)
         }
         
         nameLabel.snp.makeConstraints {
-            $0.leading.equalTo(beerImageView.snp.trailing).offset(10)
+            $0.leading.equalTo(beerImageView.snp.trailing)
             $0.trailing.equalToSuperview().inset(20)
             $0.top.equalTo(numberLabel.snp.bottom)
         }
@@ -45,6 +49,12 @@ class BeerListCell : UITableViewCell {
         numberLabel.snp.makeConstraints {
             $0.leading.equalTo(beerImageView.snp.trailing)
             $0.top.equalTo(beerImageView.snp.top
+            )
+        }
+        
+        descriptionLabel.snp.makeConstraints {
+            $0.leading.equalTo(beerImageView.snp.trailing)
+            $0.top.equalTo(nameLabel.snp.bottom
             )
         }
     }
@@ -55,6 +65,7 @@ class BeerListCell : UITableViewCell {
         beerImageView.kf.setImage(with: imageURL, placeholder: image)
         nameLabel.text = beer.name ?? "No name"
         numberLabel.text = String(beer.id)
+        descriptionLabel.text = beer.description
         
         //cell 의 indicator 표시 추가
         accessoryType = .disclosureIndicator // 오른쪽에 > 모양 만들기
