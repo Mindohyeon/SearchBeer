@@ -12,9 +12,12 @@ import SnapKit
 
 class BeerListController : UITableViewController{
     
+    //Beer 들 받아오기
     var beerList =  [Beer]()
-    var currentPage = 1
+    //한 번 불러온 데이터는 다시 받지 않기 위함
     var dataTasks = [URLSessionTask]()
+    //현재 페이지를 첫번째 페이지로 지정
+    var currentPage = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +27,7 @@ class BeerListController : UITableViewController{
         
         // cell register
         tableView.register(BeerListCell.self, forCellReuseIdentifier: "BeerListCell")
-        tableView.rowHeight = 110
+        tableView.rowHeight = 130
         
         //pagination
         tableView.prefetchDataSource = self
@@ -43,6 +46,8 @@ extension BeerListController : UITableViewDataSourcePrefetching {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BeerListCell", for: indexPath)
                 as? BeerListCell else { return UITableViewCell() }
+        
+        //cell 에 Data 넣기
         let beer = beerList[indexPath.row]
         cell.configure(with: beer)
         
