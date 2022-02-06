@@ -31,6 +31,9 @@ class BeerListCell : UITableViewCell {
         numberLabel.textColor = UIColor(.yellow)
         
         descriptionLabel.numberOfLines = 0
+        
+        //투명도 설정
+        descriptionLabel.textColor = descriptionLabel.textColor.withAlphaComponent(0.5)
 //        descriptionLabel.lineBreakMode = .byWordWrapping
         
         beerImageView.snp.makeConstraints {
