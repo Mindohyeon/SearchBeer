@@ -34,6 +34,7 @@ class BeerListCell : UITableViewCell {
         
         //투명도 설정
         descriptionLabel.textColor = descriptionLabel.textColor.withAlphaComponent(0.5)
+        descriptionLabel.font = .systemFont(ofSize: 13)
 //        descriptionLabel.lineBreakMode = .byWordWrapping
         
         beerImageView.snp.makeConstraints {
@@ -60,6 +61,7 @@ class BeerListCell : UITableViewCell {
             $0.top.equalTo(nameLabel.snp.bottom)
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
+            
         }
     }
     
