@@ -31,7 +31,6 @@ class BeerListCell : UITableViewCell {
         numberLabel.textColor = UIColor(.yellow)
         
         descriptionLabel.numberOfLines = 0
-//        descriptionLabel.textColor = descriptionLabel.textColor.withAlphaComponent(0.5)
 //        descriptionLabel.lineBreakMode = .byWordWrapping
         
         beerImageView.snp.makeConstraints {
@@ -56,6 +55,8 @@ class BeerListCell : UITableViewCell {
         descriptionLabel.snp.makeConstraints {
             $0.leading.equalTo(beerImageView.snp.trailing)
             $0.top.equalTo(nameLabel.snp.bottom)
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
     
