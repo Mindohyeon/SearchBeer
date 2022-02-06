@@ -25,13 +25,14 @@ class BeerListCell : UITableViewCell {
         //콘텐츠 비율을 유지하여 View 크기에 맞게 확장하는 옵션, 남은 영역은 투명하다.
         beerImageView.contentMode = .scaleAspectFit
         
-        nameLabel.font = .systemFont(ofSize: 13, weight: .bold)
+        nameLabel.font = .systemFont(ofSize: 14, weight: .bold)
         
         numberLabel.font = .systemFont(ofSize: 13)
         numberLabel.textColor = UIColor(.yellow)
         
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.lineBreakMode = .byWordWrapping
+//        descriptionLabel.textColor = descriptionLabel.textColor.withAlphaComponent(0.5)
+//        descriptionLabel.lineBreakMode = .byWordWrapping
         
         beerImageView.snp.makeConstraints {
             $0.centerX.equalTo(0)
@@ -54,8 +55,7 @@ class BeerListCell : UITableViewCell {
         
         descriptionLabel.snp.makeConstraints {
             $0.leading.equalTo(beerImageView.snp.trailing)
-            $0.top.equalTo(nameLabel.snp.bottom
-            )
+            $0.top.equalTo(nameLabel.snp.bottom)
         }
     }
     
