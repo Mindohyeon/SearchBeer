@@ -41,6 +41,11 @@ class SearchViewController: UIViewController {
         
     }
     
+    func setupTableView() {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+    }
+    
 }
 
 
@@ -62,4 +67,5 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     
     
 }
+
 
