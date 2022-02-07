@@ -6,31 +6,36 @@
 //
 
 import UIKit
+import SnapKit
 
-class SearchViewController: UIViewController, UISearchResultsUpdating {
+class SearchViewController: UIViewController {
     
+    
+    var SearchData : [String]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .white
-        
-        let searchController = UISearchController(searchResultsController: nil)
-        
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Search BY ID"
+        setupSearchController()
         
         //UISearchBar 내의 텍스트가 변경되는 것을 알린다.
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = "Search"
-        navigationItem.searchController = searchController
-        }
-    
-    func updateSearchResults(for searchController: UISearchController) {
+//        searchController.searchResultsUpdater = self
         
     }
-
     
-
+    func setupSearchController() {
+        let searchController = UISearchController(searchResultsController: nil)
+        
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        
+        searchController.searchResultsUpdater = self
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.title = "Search BY ID"
+        
+    }
+    
 }
-    
