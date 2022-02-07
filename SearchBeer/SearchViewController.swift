@@ -33,9 +33,15 @@ class SearchViewController: UIViewController {
         searchController.searchResultsUpdater = self
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        
         navigationItem.title = "Search BY ID"
         
     }
     
+}
+
+
+extension SearchViewController : UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        dump(searchController.searchBar.text)
+    }
 }
