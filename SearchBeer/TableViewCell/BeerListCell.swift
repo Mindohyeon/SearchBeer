@@ -38,10 +38,8 @@ class BeerListCell : UITableViewCell {
 //        descriptionLabel.lineBreakMode = .byWordWrapping
         
         beerImageView.snp.makeConstraints {
-            $0.centerX.equalTo(0)
             $0.leading.top.bottom.equalToSuperview().inset(10)
             $0.width.equalTo(90)
-            $0.height.equalTo(200)
         }
         
         nameLabel.snp.makeConstraints {
