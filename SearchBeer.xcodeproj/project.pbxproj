@@ -20,6 +20,7 @@
 		DF78D97B279EF96700FEBE1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF78D979279EF96700FEBE1B /* LaunchScreen.storyboard */; };
 		DF78D984279EFA4300FEBE1B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DF78D983279EFA4300FEBE1B /* SnapKit */; };
 		DF78D986279EFB0D00FEBE1B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78D985279EFB0D00FEBE1B /* TabBarController.swift */; };
+		DFEC212827B7FB94008BD15E /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEC212727B7FB94008BD15E /* SearchViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		DF78D97A279EF96700FEBE1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF78D97C279EF96700FEBE1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF78D985279EFB0D00FEBE1B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		DFEC212727B7FB94008BD15E /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				DF232FB727A8204E00F22D33 /* BeerListCell.swift */,
+				DFEC212727B7FB94008BD15E /* SearchViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				DF78D973279EF96600FEBE1B /* SearchViewController.swift in Sources */,
 				DF78D986279EFB0D00FEBE1B /* TabBarController.swift in Sources */,
 				DF232FB827A8204E00F22D33 /* BeerListCell.swift in Sources */,
+				DFEC212827B7FB94008BD15E /* SearchViewCell.swift in Sources */,
 				DF78D96F279EF96600FEBE1B /* AppDelegate.swift in Sources */,
 				DF78D971279EF96600FEBE1B /* SceneDelegate.swift in Sources */,
 				DF232FBD27A9855000F22D33 /* BeerDetailVIewController.swift in Sources */,
