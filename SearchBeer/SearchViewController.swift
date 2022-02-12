@@ -12,7 +12,7 @@ import CoreMedia
 class SearchViewController: UIViewController {
     
     var tableView = UITableView()
-    var allLocationArr : [Beer] = []
+
     var filterArr : [Beer] = []
     var SearchData = [Beer]()
     var dataTasks = [URLSessionDataTask]()
@@ -45,6 +45,9 @@ class SearchViewController: UIViewController {
         
         //사용자가 검색한 값에 따라서 컨텐츠를 업데이트 시켜주는 프로퍼티
         searchController.searchResultsUpdater = self
+        
+        //검색 중에 기본 콘텐츠가 가려지는지 여부를 나타냄
+        searchController.obscuresBackgroundDuringPresentation = false
     
 //        searchController.hidesNavigationBarDuringPresentation = false
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -64,10 +67,20 @@ class SearchViewController: UIViewController {
 
 
 extension SearchViewController : UISearchResultsUpdating {
+    
+    func filteredContentForSearchText(_ SearchText : String) {
+        print("search")
+        filterArr = SearchData.filter( { (location) -> Bool in
+            return location.name.lowercased().contains(SearchText.lowercased()) ||
+            location.description.lowercased().contains(SearchText.lowercased())
+        })
+        tableView.reloadData()
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
 //        guard let text = searchController.searchBar.text else { return }
 //        self.filterArr = self.SearchData..map( {$0.filter { $0.localizedCaseInsensitiveContains(text)}})
-        
+        filteredContentForSearchText(searchController.searchBar.text ?? "")
         dump(searchController.searchBar.text)
     }
 }
@@ -80,28 +93,16 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell()
+        print("abbbb")
+        let cell = UITableViewCell()
 //        cell.textLabel?.text = SearchData[indexPath.row].name
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchViewCell") as! SearchViewCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchViewCell") as! SearchViewCell
         
         let location = filterArr[indexPath.row]
         cell.textLabel?.text = location.name
         cell.detailTextLabel?.text = location.description
         
         return cell
-    }
-    
-    func filteredContentForSearchText(_ SearchText : String) {
-        print("search")
-        filterArr = SearchData.filter( { (location) -> Bool in
-            return location.name.lowercased().contains(SearchText.lowercased()) ||
-            location.description.lowercased().contains(SearchText.lowercased())
-        })
-        tableView.reloadData()
-    }
-    
-    func updateSearchReRusults(for searchController : UISearchController) {
-        filteredContentForSearchText(searchController.searchBar.text ?? "")
     }
 
 }
