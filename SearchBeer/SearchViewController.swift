@@ -85,7 +85,7 @@ extension SearchViewController : UISearchResultsUpdating {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedBeer = SearchData[indexPath.row]
+        let selectedBeer = filterArr[indexPath.row]
         let detailViewController = BeerDetailViewController()
         detailViewController.beer = selectedBeer
         
