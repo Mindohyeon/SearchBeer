@@ -83,6 +83,15 @@ extension SearchViewController : UISearchResultsUpdating {
         filteredContentForSearchText(searchController.searchBar.text ?? "")
         dump(searchController.searchBar.text)
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedBeer = SearchData[indexPath.row]
+        let detailViewController = BeerDetailViewController()
+        detailViewController.beer = selectedBeer
+        
+        self.show(detailViewController, sender: nil)
+        
+    }
 }
 
 extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
@@ -93,7 +102,6 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("abbbb")
         let cell = UITableViewCell()
 //        cell.textLabel?.text = SearchData[indexPath.row].name
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchViewCell") as! SearchViewCell
@@ -116,7 +124,6 @@ extension SearchViewController {
                 dataTasks.firstIndex(where: { $0.originalRequest?.url == url }) == nil
         else { return }
         var request = URLRequest(url: url)
-        print("aaa")
         //get 으로 설정
         request.httpMethod = "GET"
         
