@@ -129,12 +129,14 @@ extension SearchViewController {
         print(url
         )
         var request = URLRequest(url: url)
+
         //get 으로 설정
         request.httpMethod = "GET"
         
         
-        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+        let dataTask = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             guard error == nil,
+                  let self = self,
                   let response = response as? HTTPURLResponse,
                   let data = data,
                   let beers = try? JSONDecoder().decode([Beer].self, from: data) else {
@@ -148,9 +150,9 @@ extension SearchViewController {
                 self.SearchData += beers
                 self.currentPage += 1
                 
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
                 
             default:
                 print("""
@@ -165,6 +167,7 @@ extension SearchViewController {
         
         //실행했던 거 다시 실행시키지 않기 위해서
         dataTasks.append(dataTask)
+
     }
 }
 
