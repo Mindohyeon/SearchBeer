@@ -17,6 +17,7 @@ class SearchViewController: UIViewController {
     var SearchData = [Beer]()
     var dataTasks = [URLSessionDataTask]()
     
+    
     var currentPage = 1
 
     override func viewDidLoad() {
@@ -53,7 +54,7 @@ class SearchViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Search BY ID"
         
-        fetchBeer(of: 1)
+        
         
         
     }
@@ -69,7 +70,9 @@ class SearchViewController: UIViewController {
 extension SearchViewController : UISearchResultsUpdating {
     
     func filteredContentForSearchText(_ SearchText : String) {
-        print("search")
+        
+        fetchBeer(of: SearchText)
+            
         filterArr = SearchData.filter( { (location) -> Bool in
             return location.name.lowercased().contains(SearchText.lowercased()) ||
             location.description.lowercased().contains(SearchText.lowercased())
@@ -118,11 +121,13 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
 
 
 extension SearchViewController {
-    func fetchBeer(of Page : Int) {
-        guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(Page)"),
+    func fetchBeer(of beerName : String) {
+        guard let url = URL(string: "https://api.punkapi.com/v2/beers?beer_name=\(beerName)"),
               //요청된 적 없는 url 인지 확인
                 dataTasks.firstIndex(where: { $0.originalRequest?.url == url }) == nil
         else { return }
+        print(url
+        )
         var request = URLRequest(url: url)
         //get 으로 설정
         request.httpMethod = "GET"
