@@ -40,6 +40,7 @@ class BeerListController : UITableViewController{
 extension BeerListController : UITableViewDataSourcePrefetching {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("beerList : \(beerList.count)")
         return beerList.count
     }
     
@@ -89,7 +90,7 @@ extension BeerListController {
         request.httpMethod = "GET"
         
         
-        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+        let dataTask = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             guard error == nil,
                   let response = response as? HTTPURLResponse,
                   let data = data,
@@ -101,11 +102,11 @@ extension BeerListController {
             //response의 statusCode 별 대처
             switch response.statusCode {
             case(200...299):  //성공, 받아온 beers 데이터를 beerList 에 추가, 다음 페이지로 이동
-                self.beerList += beers
-                self.currentPage += 1
+                self?.beerList += beers
+                self?.currentPage += 1
                 
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    self?.tableView.reloadData()
                 }
             default:
                 print("""
@@ -117,6 +118,7 @@ extension BeerListController {
         }
         
         dataTask.resume()
+        
         //실행했던 거 다시 실행시키지 않기 위해서
         dataTasks.append(dataTask)
     }
