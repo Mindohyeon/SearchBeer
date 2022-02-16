@@ -14,11 +14,9 @@ class SearchViewController: UIViewController {
     var tableView = UITableView()
 
     var filterArr : [Beer] = []
-    var SearchData = [Beer]()
-    var dataTasks = [URLSessionDataTask]()
-    
-    
-    var currentPage = 1
+    var SearchData : [Beer] = []
+    var dataTasks = [URLSessionTask]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +52,6 @@ class SearchViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Search BY ID"
         
-        
-        
-        
     }
     
     func setupTableView() {
@@ -71,19 +66,22 @@ extension SearchViewController : UISearchResultsUpdating {
     
     func filteredContentForSearchText(_ SearchText : String) {
         
-        fetchBeer(of: SearchText)
-            
         filterArr = SearchData.filter( { (location) -> Bool in
             return location.name.lowercased().contains(SearchText.lowercased()) ||
             location.description.lowercased().contains(SearchText.lowercased())
         })
+    
         tableView.reloadData()
+        fetchBeer(of: SearchText)
+
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-//        guard let text = searchController.searchBar.text else { return }
-//        self.filterArr = self.SearchData..map( {$0.filter { $0.localizedCaseInsensitiveContains(text)}})
+        
+        //filteredContentForSearchText 로 parameter 전달
         filteredContentForSearchText(searchController.searchBar.text ?? "")
+        
+        
         dump(searchController.searchBar.text)
     }
     
@@ -126,8 +124,8 @@ extension SearchViewController {
               //요청된 적 없는 url 인지 확인
                 dataTasks.firstIndex(where: { $0.originalRequest?.url == url }) == nil
         else { return }
-        print(url
-        )
+        print(url)
+        print(dataTasks.count)
         var request = URLRequest(url: url)
 
         //get 으로 설정
@@ -136,7 +134,7 @@ extension SearchViewController {
         
         let dataTask = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             guard error == nil,
-                  let self = self,
+//                  let self = self,
                   let response = response as? HTTPURLResponse,
                   let data = data,
                   let beers = try? JSONDecoder().decode([Beer].self, from: data) else {
@@ -147,12 +145,11 @@ extension SearchViewController {
             //response의 statusCode 별 대처
             switch response.statusCode {
             case(200...299):  //성공, 받아온 beers 데이터를 beerList 에 추가, 다음 페이지로 이동
-                self.SearchData += beers
-                self.currentPage += 1
+                self?.SearchData += beers
                 
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
                 
             default:
                 print("""
