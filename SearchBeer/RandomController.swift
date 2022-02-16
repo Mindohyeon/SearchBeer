@@ -37,6 +37,7 @@ class RandomController : UIViewController {
         
         descriptionView.numberOfLines = 0
         descriptionView.font = .systemFont(ofSize: 13)
+        descriptionView.textColor = descriptionView.textColor.withAlphaComponent(0.5)
         
         randomButton.backgroundColor = .orange
         randomButton.setTitle("Roll Random", for: .normal)
