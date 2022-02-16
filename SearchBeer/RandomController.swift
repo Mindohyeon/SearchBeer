@@ -19,6 +19,8 @@ class RandomController : UIViewController {
     var nameView = UILabel()
     var descriptionView = UILabel()
     var randomButton = UIButton()
+    var headerView = UIImageView()
+    var imageURL = URL(string: "")
     
     
     override func viewDidLoad() {
@@ -28,10 +30,6 @@ class RandomController : UIViewController {
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Random Beer"
-        
-        let frame = CGRect(x: 0, y: 0, width: 300, height: 300)
-        let headerView = UIImageView(frame: frame)
-        let imageURL = URL(string: beerList?[0].imageURL ?? "")
         
         numberView.textColor = .systemYellow
         
@@ -48,12 +46,13 @@ class RandomController : UIViewController {
         randomButton.addTarget(self, action: #selector(onTabButton), for: .touchUpInside)
         
         headerView.contentMode = .scaleAspectFit
-        headerView.kf.setImage(with: imageURL, placeholder: UIImage(named: "1613805137738"))
         
         [headerView, numberView, nameView, descriptionView, randomButton].forEach { view.addSubview($0)}
         headerView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview().inset(150)
+            $0.width.equalTo(200)
+            $0.height.equalTo(200)
         }
         
         numberView.snp.makeConstraints {
@@ -89,6 +88,9 @@ class RandomController : UIViewController {
 
         random()
 
+        imageURL = URL(string: beerList?[0].imageURL ?? "")
+        headerView.kf.setImage(with: imageURL, placeholder: UIImage(named: "1613805137738"))
+        
         numberView.text = String(describing: beerList?[0].id ?? 0)
         nameView.text = beerList?[0].name
         descriptionView.text = beerList?[0].description
