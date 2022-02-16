@@ -36,7 +36,7 @@ class RandomController : UIViewController {
         numberView.textColor = .systemYellow
         
         descriptionView.numberOfLines = 0
-        descriptionView.font = .systemFont(ofSize: 14)
+        descriptionView.font = .systemFont(ofSize: 13)
         
         randomButton.backgroundColor = .orange
         randomButton.setTitle("Roll Random", for: .normal)
@@ -69,8 +69,8 @@ class RandomController : UIViewController {
         descriptionView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(nameView.snp.bottom).offset(20)
-            $0.leading.equalToSuperview().offset(5)
-            $0.trailing.equalToSuperview().offset(5)
+            $0.leading.equalToSuperview().inset(10)
+            $0.trailing.equalToSuperview().inset(5)
         }
         
         randomButton.snp.makeConstraints {
@@ -81,13 +81,6 @@ class RandomController : UIViewController {
         
         
         }
-    }
-    
-    @objc
-    func onTabButton() {
-        print("Tabbed")
-        random()
-        viewWillAppear(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,6 +94,14 @@ class RandomController : UIViewController {
         print("beerList : \(beerList)")
         print("beerList.imageURL : \(beerList?[0].imageURL)")
     }
+    
+    @objc
+    func onTabButton() {
+        print("Tabbed")
+        random()
+        viewWillAppear(true)
+    }
+
 }
 
 extension RandomController {
