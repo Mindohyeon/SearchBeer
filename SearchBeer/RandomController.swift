@@ -7,12 +7,18 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
-class RandomController : UITableViewController {
+class RandomController : UIViewController {
     var dataTasks = [URLSessionTask]()
-    var beerDetailView = BeerDetailViewController()
     
     var beerList : [Beer]?
+    
+    var imageView = UIImageView()
+    var numberView = UILabel()
+    var nameView = UILabel()
+    var descriptionView = UILabel()
+    var randomButton = UIButton()
     
     
     override func viewDidLoad() {
@@ -22,27 +28,79 @@ class RandomController : UITableViewController {
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Random Beer"
-    
-         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        random()
-        beerDetailView.beer = beerList?[0]
-        print("beerList : \(beerList)")
+        let frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+        let headerView = UIImageView(frame: frame)
+        let imageURL = URL(string: beerList?[0].imageURL ?? "")
+        
+        numberView.textColor = .yellow
+        
+        descriptionView.numberOfLines = 0
+        descriptionView.font = .systemFont(ofSize: 14)
+        
+        randomButton.backgroundColor = .orange
+        randomButton.setTitle("Roll Random", for: .highlighted)
+        randomButton.setTitleColor(.white, for: .highlighted)
+        
+        
+        
+//        random()
 
         
-        self.show(beerDetailView, sender: nil)
-                
+        headerView.contentMode = .scaleAspectFit
+        headerView.kf.setImage(with: imageURL, placeholder: UIImage(named: "1613805137738"))
+        
+        [headerView, numberView, nameView, descriptionView, randomButton].forEach { view.addSubview($0)}
+        headerView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().inset(150)
+        }
+        
+        numberView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(headerView.snp.bottom).offset(20)
+            
+        }
+        
+        nameView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(numberView.snp.bottom).offset(10)
+        }
+        
+        descriptionView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(nameView.snp.bottom).offset(20)
+            $0.leading.equalToSuperview().offset(5)
+            $0.trailing.equalToSuperview().offset(5)
+        }
+        
+        randomButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(160)
+            $0.height.equalTo(50)
+            $0.bottom.equalToSuperview().inset(140)
+        
+        
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        random()
+
+        numberView.text = String(describing: beerList?[0].id ?? 0)
+        nameView.text = beerList?[0].name
+        descriptionView.text = beerList?[0].description
+        print("beerList : \(beerList)")
+        print("beerList.imageURL : \(beerList?[0].imageURL)")
     }
 }
 
 extension RandomController {
     func random() {
         guard let url = URL(string: "https://api.punkapi.com/v2/beers/random"),
-                dataTasks.first(where: { $0.originalRequest?.url == url }) == nil
+              dataTasks.first(where: { $0.originalRequest?.url == url }) == nil
         else { return }
         
         var request = URLRequest(url: url)
@@ -69,6 +127,10 @@ extension RandomController {
                     """)
                   
             }
+            
+//            self?.beerDetailView.beer = self?.beerList?[0]
+//            print("RandomController - beerList : \(self?.beerList?[0])")
+            
         }
         
         dataTask.resume()
