@@ -43,6 +43,8 @@ class RandomController : UIViewController {
         randomButton.setTitleColor(.white, for: .normal)
         randomButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         
+        randomButton.addTarget(self, action: #selector(onTabButton), for: .touchUpInside)
+        
         
         
 //        random()
@@ -83,6 +85,11 @@ class RandomController : UIViewController {
         
         
         }
+    }
+    
+    @objc
+    func onTabButton() {
+        print("Tabbed")
     }
     
     override func viewWillAppear(_ animated: Bool) {
