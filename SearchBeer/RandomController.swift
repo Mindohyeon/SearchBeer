@@ -83,7 +83,7 @@ class RandomController : UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         random()
@@ -102,7 +102,7 @@ class RandomController : UIViewController {
     func onTabButton() {
         print("Tabbed")
         random()
-        viewWillAppear(true)
+        viewDidAppear(true)
     }
 
 }
