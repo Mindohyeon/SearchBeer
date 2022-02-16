@@ -33,7 +33,7 @@ class RandomController : UIViewController {
         let headerView = UIImageView(frame: frame)
         let imageURL = URL(string: beerList?[0].imageURL ?? "")
         
-        numberView.textColor = .yellow
+        numberView.textColor = .systemYellow
         
         descriptionView.numberOfLines = 0
         descriptionView.font = .systemFont(ofSize: 14)
@@ -43,12 +43,8 @@ class RandomController : UIViewController {
         randomButton.setTitleColor(.white, for: .normal)
         randomButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         
+        //Method 등록
         randomButton.addTarget(self, action: #selector(onTabButton), for: .touchUpInside)
-        
-        
-        
-//        random()
-
         
         headerView.contentMode = .scaleAspectFit
         headerView.kf.setImage(with: imageURL, placeholder: UIImage(named: "1613805137738"))
@@ -90,6 +86,7 @@ class RandomController : UIViewController {
     @objc
     func onTabButton() {
         print("Tabbed")
+        random()
     }
     
     override func viewWillAppear(_ animated: Bool) {
