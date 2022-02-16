@@ -39,8 +39,9 @@ class RandomController : UIViewController {
         descriptionView.font = .systemFont(ofSize: 14)
         
         randomButton.backgroundColor = .orange
-        randomButton.setTitle("Roll Random", for: .highlighted)
-        randomButton.setTitleColor(.white, for: .highlighted)
+        randomButton.setTitle("Roll Random", for: .normal)
+        randomButton.setTitleColor(.white, for: .normal)
+        randomButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         
         
         
