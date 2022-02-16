@@ -55,6 +55,7 @@ extension BeerDetailViewController {
     
     //각 section 의 title 정하기
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        print("BeerDetailViewController - beer : \(beer)")
         switch section {
         case 0:
             return "ID"

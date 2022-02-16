@@ -13,7 +13,7 @@ import SnapKit
 class BeerListController : UITableViewController{
     
     //Beer 들 받아오기
-    var beerList =  [Beer]()
+    var beerList = [Beer]()
     //한 번 불러온 데이터는 다시 받지 않기 위함
     var dataTasks = [URLSessionTask]()
     //현재 페이지를 첫번째 페이지로 지정
