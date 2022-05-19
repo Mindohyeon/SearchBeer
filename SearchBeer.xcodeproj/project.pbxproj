@@ -13,6 +13,7 @@
 		DF232FB827A8204E00F22D33 /* BeerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF232FB727A8204E00F22D33 /* BeerListCell.swift */; };
 		DF232FBB27A97CA200F22D33 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DF232FBA27A97CA200F22D33 /* Kingfisher */; };
 		DF232FBD27A9855000F22D33 /* BeerDetailVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF232FBC27A9855000F22D33 /* BeerDetailVIewController.swift */; };
+		DF63DCAF28363BD600DDD2E5 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DF63DCAE28363BD600DDD2E5 /* Then */; };
 		DF78D96F279EF96600FEBE1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78D96E279EF96600FEBE1B /* AppDelegate.swift */; };
 		DF78D971279EF96600FEBE1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78D970279EF96600FEBE1B /* SceneDelegate.swift */; };
 		DF78D973279EF96600FEBE1B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78D972279EF96600FEBE1B /* SearchViewController.swift */; };
@@ -46,6 +47,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF232FBB27A97CA200F22D33 /* Kingfisher in Frameworks */,
+				DF63DCAF28363BD600DDD2E5 /* Then in Frameworks */,
 				DF78D984279EFA4300FEBE1B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +126,7 @@
 			packageProductDependencies = (
 				DF78D983279EFA4300FEBE1B /* SnapKit */,
 				DF232FBA27A97CA200F22D33 /* Kingfisher */,
+				DF63DCAE28363BD600DDD2E5 /* Then */,
 			);
 			productName = SearchBeer;
 			productReference = DF78D96B279EF96600FEBE1B /* SearchBeer.app */;
@@ -156,6 +159,7 @@
 			packageReferences = (
 				DF78D982279EFA4300FEBE1B /* XCRemoteSwiftPackageReference "SnapKit" */,
 				DF232FB927A97CA200F22D33 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				DF63DCAD28363BD600DDD2E5 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = DF78D96C279EF96600FEBE1B /* Products */;
 			projectDirPath = "";
@@ -412,6 +416,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		DF63DCAD28363BD600DDD2E5 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		DF78D982279EFA4300FEBE1B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -427,6 +439,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DF232FB927A97CA200F22D33 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		DF63DCAE28363BD600DDD2E5 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF63DCAD28363BD600DDD2E5 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 		DF78D983279EFA4300FEBE1B /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

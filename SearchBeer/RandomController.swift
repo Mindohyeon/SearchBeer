@@ -8,18 +8,36 @@
 import Foundation
 import UIKit
 import SnapKit
+import Then
 
 class RandomController : UIViewController {
     var dataTasks = [URLSessionTask]()
     
     var beerList : [Beer]?
-    
-    var imageView = UIImageView()
-    var numberView = UILabel()
     var nameView = UILabel()
-    var descriptionView = UILabel()
-    var randomButton = UIButton()
-    var headerView = UIImageView()
+    var imageView = UIImageView()
+    
+    var numberView = UILabel().then {
+        $0.textColor = .systemYellow
+    }
+    
+    var descriptionView = UILabel().then {
+        $0.numberOfLines = 0
+        $0.font = .systemFont(ofSize: 13)
+        $0.textColor.withAlphaComponent(0.5)
+    }
+    
+    var randomButton = UIButton().then {
+        $0.backgroundColor = .orange
+        $0.setTitle("Roll Random", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        $0.addTarget(self, action: #selector(onTabButton), for: .touchUpInside)
+    }
+    
+    var headerView = UIImageView().then {
+        $0.contentMode = .scaleAspectFit
+    }
     var imageURL = URL(string: "")
     var scrollV = UIScrollView()
     
@@ -31,22 +49,6 @@ class RandomController : UIViewController {
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Random Beer"
-        
-        numberView.textColor = .systemYellow
-        
-        descriptionView.numberOfLines = 0
-        descriptionView.font = .systemFont(ofSize: 13)
-        descriptionView.textColor = descriptionView.textColor.withAlphaComponent(0.5)
-        
-        randomButton.backgroundColor = .orange
-        randomButton.setTitle("Roll Random", for: .normal)
-        randomButton.setTitleColor(.white, for: .normal)
-        randomButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        
-        //Method 등록
-        randomButton.addTarget(self, action: #selector(onTabButton), for: .touchUpInside)
-        
-        headerView.contentMode = .scaleAspectFit
         
         [scrollV, headerView, numberView, nameView, descriptionView, randomButton].forEach { view.addSubview($0)}
         scrollV.snp.makeConstraints {
@@ -141,13 +143,7 @@ extension RandomController {
                     """)
                   
             }
-            
-//            self?.beerDetailView.beer = self?.beerList?[0]
-//            print("RandomController - beerList : \(self?.beerList?[0])")
-            
         }
-        
         dataTask.resume()
-        
     }
 }
