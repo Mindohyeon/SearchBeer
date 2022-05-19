@@ -21,6 +21,7 @@ class RandomController : UIViewController {
     var randomButton = UIButton()
     var headerView = UIImageView()
     var imageURL = URL(string: "")
+    var scrollV = UIScrollView()
     
     
     override func viewDidLoad() {
@@ -47,7 +48,11 @@ class RandomController : UIViewController {
         
         headerView.contentMode = .scaleAspectFit
         
-        [headerView, numberView, nameView, descriptionView, randomButton].forEach { view.addSubview($0)}
+        [scrollV, headerView, numberView, nameView, descriptionView, randomButton].forEach { view.addSubview($0)}
+        scrollV.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
         headerView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview().inset(150)
@@ -66,20 +71,19 @@ class RandomController : UIViewController {
             $0.top.equalTo(numberView.snp.bottom).offset(10)
         }
         
-        descriptionView.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(nameView.snp.bottom).offset(20)
-            $0.leading.equalToSuperview().inset(10)
-            $0.trailing.equalToSuperview().inset(5)
-        }
         
         randomButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.width.equalTo(160)
             $0.height.equalTo(50)
-            $0.bottom.equalToSuperview().inset(140)
+            $0.top.equalTo(nameView.snp.bottom).offset(12)
+        }
         
-        
+        descriptionView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(randomButton.snp.bottom).offset(20)
+            $0.leading.equalToSuperview().inset(10)
+            $0.trailing.equalToSuperview().inset(5)
         }
     }
     
