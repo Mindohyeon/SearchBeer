@@ -11,23 +11,23 @@ import SnapKit
 import Then
 
 class RandomController : UIViewController {
-    var dataTasks = [URLSessionTask]()
+    private var dataTasks = [URLSessionTask]()
     
-    var beerList : [Beer]?
-    var nameView = UILabel()
-    var imageView = UIImageView()
+    private var beerList : [Beer]?
+    private var nameView = UILabel()
+    private var imageView = UIImageView()
     
-    var numberView = UILabel().then {
+    private var numberView = UILabel().then {
         $0.textColor = .systemYellow
     }
     
-    var descriptionView = UILabel().then {
+    private var descriptionView = UILabel().then {
         $0.numberOfLines = 0
         $0.font = .systemFont(ofSize: 13)
         $0.textColor.withAlphaComponent(0.5)
     }
     
-    var randomButton = UIButton().then {
+    private var randomButton = UIButton().then {
         $0.backgroundColor = .orange
         $0.setTitle("Roll Random", for: .normal)
         $0.setTitleColor(.white, for: .normal)
@@ -35,11 +35,11 @@ class RandomController : UIViewController {
         $0.addTarget(self, action: #selector(onTabButton), for: .touchUpInside)
     }
     
-    var headerView = UIImageView().then {
+    private var headerView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
     }
-    var imageURL = URL(string: "")
-    var scrollV = UIScrollView()
+    private var imageURL = URL(string: "")
+    private var scrollV = UIScrollView()
     
     
     override func viewDidLoad() {
@@ -104,8 +104,7 @@ class RandomController : UIViewController {
         print("beerList.imageURL : \(beerList?[0].imageURL)")
     }
     
-    @objc
-    func onTabButton() {
+    @objc func onTabButton() {
         print("Tabbed")
         random()
         viewDidAppear(true)
